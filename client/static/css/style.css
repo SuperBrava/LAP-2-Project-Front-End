@@ -1,0 +1,63 @@
+
+
+.headertext{
+    display: flex;
+    justify-content: center;
+    margin: 25px;
+}
+
+#header1{
+   color: rgb(149, 149, 149);
+}
+
+
+#form{
+    font-family: 'Lato', sans-serif;
+    display: flex;
+    flex-direction: column;
+    margin: 5px;
+    width: 50%;
+    margin: auto;
+}
+
+label{
+    font-size: 1.2em;
+    margin: 15px 0 3px;
+    font-weight: bold;
+}
+
+.textbox{
+    background-color:  rgb(216, 216, 216);
+    border: none;
+    border-radius: 5px;
+    padding: 10px 25px;
+    font-size: 1.15em;
+}
+
+#title{
+    height: 35px;
+}
+
+#author{
+    height: 35px;
+}
+
+#story{
+height: 250px;
+overflow-wrap: break-word; 
+}
+
+.btn{
+    width: 20%;
+    margin: auto;
+}
+
+#registerBox{
+    display: flex;
+    justify-content: center;
+    margin: 35px;
+}
+
+#registerLink{
+    color: #212529;
+}
