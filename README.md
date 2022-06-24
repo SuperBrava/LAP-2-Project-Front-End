@@ -15,3 +15,8 @@
 [  ] Minimum 60% test coverage with an aim of 80%
 
 [  ] Your codebase should primarily feature the technologies we have covered so far on the course
+
+## Getting started code
+```
+
+```
