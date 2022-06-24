@@ -1,15 +1,9 @@
-body {
-    background-color: beige;
-    height: 100%;
-    width: 100%;
-   }
 
 
 .headertext{
     display: flex;
     justify-content: center;
     margin: 25px;
-
 }
 
 #header1{
@@ -22,7 +16,6 @@ body {
     display: flex;
     flex-direction: column;
     margin: 5px;
-   
     width: 50%;
     margin: auto;
 }
@@ -57,4 +50,14 @@ overflow-wrap: break-word;
 .btn{
     width: 20%;
     margin: auto;
+}
+
+#registerBox{
+    display: flex;
+    justify-content: center;
+    margin: 35px;
+}
+
+#registerLink{
+    color: #212529;
 }
