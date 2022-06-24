@@ -8,6 +8,11 @@
     <!--Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400&display=swap" rel="stylesheet">
+
     <!--Local CSS & JS-->
     <link rel="stylesheet" href="./static/css/style.css">
     <script defer href="./static/js/scripts.js"></script>
@@ -15,11 +20,23 @@
     <title>Habit Tracker</title>
 </head>
 <body>
-<h1> Habit Tracker</h1>
 
-<form>
-    <label>Username:</label>
-    <input>
+
+<div class="headertext">
+    <h1>
+        <span id="header1">Habit</span><span id="header2">Tracker</span>
+    </h1>
+</div>
+
+<form id="form">
+    <label for="title">Username: </label>
+    <input class="textbox" type="text" name="title" id="title" required> 
+
+    <label for="author">Password: </label>
+    <input class="textbox" type="text" name="author" id="author" required>
+
+    <br/>
+    <button class="btn btn-dark"  type="button" id="submitPost" ame="submit" value="Update my file" >Login</button>
 </form>
     
 </body>
