@@ -1,4 +1,6 @@
-
+body{
+    font-family: 'Lato', sans-serif;
+}
 
 .headertext{
     display: flex;
@@ -61,3 +63,61 @@ overflow-wrap: break-word;
 #registerLink{
     color: #212529;
 }
+
+.container{
+    font-size: 1.4rem;
+    margin: 0 auto 10px;
+    height: 100px;
+    border: solid black;
+    border-radius: 10px;
+    
+}
+
+.container section{  
+        height: 100px;
+        background-color:blue; 
+}
+
+.container-main{
+    height: auto;
+    padding: 5px 10px;
+}
+
+.container-feedback{
+    height: 200px;
+}
+
+.update-habits{
+
+}
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) {
+    .container{
+        width: 80%;
+    }    
+
+}
+
+/*  Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) { 
+    .container{
+        width: 70%;
+    }    
+
+ }
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) { 
+    .container{
+        width: 60%;
+    }    
+
+ }
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) { 
+    .container{
+        width: 50%;
+    }
+ }
