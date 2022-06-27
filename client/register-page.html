@@ -12,6 +12,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
     <link rel="stylesheet" href="./static/css/register-login.css">
 
     <!--Local CSS & JS-->
@@ -20,19 +21,28 @@
 
     <title>Habit Tracker: Register</title>
 
-    <div class="registerContainer">
-        <div class="registerBody">
+    <div class="mainContainer">
+        <div class="mainBody">
             <img class="logo" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSxtomcAhqHu3X2B8Haxa3bK3mXFYqhMtDYJg&usqp=CAU" alt="Girl in a jacket">
-            <h1>Register new account here!</h1>
-            <form>
+            <h1>Register new account</h1>
+            <form id="registerForm">
                 <label for="username">Username:</label>
-                <input type="text" id="username" name="username">
+                <input type="text" id="username" name="username" required>
                 <label for="password">Password:</label>
-                <input type="password" name="password" id="password">
+                <p>
+                    <input type="password" name="password" id="password" required>
+                    <i class="far fa-eye" id="togglePassword" style="margin-left: -30px; cursor: pointer;"></i>
+                </p>
+                <span id = "passwordMessage" style="color:red"> </span>
                 <label for="confirmPassword">Confirm Password:</label>
-                <input type="password" name="confirmPassword" id="confirmPassword">
+                <p>
+                    <input type="password" name="confirmPassword" id="confirmPassword" required>
+                    <i class="far fa-eye" id="togglePassword" style="margin-left: -30px; cursor: pointer;"></i>
+                </p>
+                <span id = "passwordConfirmMessage" style="color:red"></span>
                 <input type="submit" id="registerButton" name="registerButton" value="Register">
             </form>
+            <p class="link">Already have an account? <a href="./login-page.html">Login here</a></p>
         </div>
     </div>
 
@@ -47,4 +57,6 @@
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+<script src="./static/js/register.js"></script>
 </html>

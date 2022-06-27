@@ -1,11 +1,12 @@
 html, body {
     height: 100%;
+    width: 100%;
 }
 body {
     margin: 0;
 }
 
-.registerContainer {
+.mainContainer {
     height: 100%;
     padding: 0;
     margin: 0;
@@ -15,10 +16,9 @@ body {
 }
 
 
-.registerBody{
+.mainBody{
     font-family: 'Lato', sans-serif;
     margin: 5px;
-    width: 30%;
     margin: auto;
 
     border: 1px solid #ccc;
@@ -38,20 +38,26 @@ label{
 }
 
 input[type=text],input[type=password]{
+    width: 90%;
     line-height: 50px;
     border: 1px solid #ccc;
     border-radius: 5px;
 }
 
-#registerButton {
+input[type=submit] {
     font-size: 25px;
     border: none;
     border-radius: 10px;
     height: 60px;
     margin-top: 25px;
+    margin-bottom: 25px;
+
 }
 
 .logo{
     margin: 0px 0px 30px 0px;
 }
 
+.link{
+    margin-left: 10%;
+}
