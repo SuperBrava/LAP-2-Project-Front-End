@@ -1,15 +1,15 @@
-
+/* STYLES FOR LANDING PAGE 
+-------------------------------------------------------------------------------------------
+*/
+body{
+    font-family: 'Lato', sans-serif;
+}
 
 .headertext{
     display: flex;
     justify-content: center;
     margin: 25px;
 }
-
-#header1{
-   color: rgb(149, 149, 149);
-}
-
 
 #form{
     font-family: 'Lato', sans-serif;
@@ -27,29 +27,13 @@ label{
 }
 
 .textbox{
-    background-color:  rgb(216, 216, 216);
     border: none;
-    border-radius: 5px;
     padding: 10px 25px;
     font-size: 1.15em;
 }
 
-#title{
-    height: 35px;
-}
-
-#author{
-    height: 35px;
-}
-
-#story{
-height: 250px;
-overflow-wrap: break-word; 
-}
-
 .btn{
     width: 20%;
-    margin: auto;
 }
 
 #registerBox{
@@ -61,3 +45,92 @@ overflow-wrap: break-word;
 #registerLink{
     color: #212529;
 }
+
+/* STYLES FOR MAIN USER PAGE (HABIT TRACKER) 
+-------------------------------------------------------------------------------------------
+*/
+
+.logo {
+    display: flex;
+    margin: auto;
+
+}
+.container{
+    font-weight: 600;
+    font-size: 1.4rem;
+    color: rgb(100, 100, 100);
+    margin: 0 auto 10px;
+    /* border: solid rgb(100, 100, 100);
+    border-radius: 10px; */
+}
+
+.container section{  
+    font-weight: 400;
+    min-height: 25px;
+    padding: 10px 30px;
+    height: auto;
+}
+
+.container-main{
+    border-top: solid rgb(100, 100, 100);
+    height: auto;
+    padding: 15px 10px;
+}
+
+.container-feedback{
+    height: 150px;
+    font-size: 2rem;
+    text-align: center;
+    padding: 25px;
+    color: #83ab60;
+    border-top: solid rgb(100, 100, 100);
+}
+
+.update-habits{
+    height: 100px;
+}
+
+.habits button{
+    margin-left: auto;
+    background-color: #83ab60;
+    color: white;
+    border: none;
+    margin-top: 10px;
+}
+
+/* .habits habits-row{
+    display: flex;
+    justify-content: space-between;
+} */
+
+/* MEDIA QUERIES FOR MAIN PAGE 
+-------------------------------------------------------------------------------------------
+*/
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) {
+    .container{
+        width: 80%;
+    }    
+}
+
+/*  Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) { 
+    .container{
+        width: 70%;
+    }    
+ }
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) { 
+    .container{
+        width: 60%;
+    }    
+ }
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) { 
+    .container{
+        width: 50%;
+    }
+ }
