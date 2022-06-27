@@ -1,0 +1,57 @@
+html, body {
+    height: 100%;
+}
+body {
+    margin: 0;
+}
+
+.registerContainer {
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.registerBody{
+    font-family: 'Lato', sans-serif;
+    margin: 5px;
+    width: 30%;
+    margin: auto;
+
+    border: 1px solid #ccc;
+    padding: 40px;
+    border-radius: 30px;
+}
+form {
+    display: flex;
+    flex-direction: column;
+    color: rgb(149, 149, 149);
+
+}
+
+label{
+    font-size: 1.2em;
+    margin: 15px 0 3px;
+}
+
+input[type=text],input[type=password]{
+    line-height: 50px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#registerButton {
+    font-size: 25px;
+    border: none;
+    border-radius: 10px;
+    height: 60px;
+    margin-top: 25px;
+}
+
+.logo{
+    margin: 0px 0px 30px 0px;
+}
+
