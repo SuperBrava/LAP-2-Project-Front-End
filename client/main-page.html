@@ -15,49 +15,58 @@
       <!--Local CSS & JS-->
       <link rel="stylesheet" href="./static/css/style.css">
       <script defer href="./static/js/scripts.js"></script>
+
+      <!-- Favicon Image -->
+      <link rel="icon" type="image/png" href="./static/assets/habit-tracker-favicon.png"/>
    
-       <title>Habit Tracker: Main</title>
+       <title>Habit Tracker</title>
    </head>
    <body>
    
-    <div class="headertext">
-        <h1>
-            <span id="header1">Habit</span><span id="header2">Tracker</span>
-        </h1>
-    </div>
+    <img class="logo" src="./static/assets/habit-tracker-gif-looponce.gif" alt="Habit tracker logo"/>
 
     <div class="container container-main">
         <div class="today">
             Today: <br/>
-                <section class="habits habits-today">
-                    <ul>
-                        <li>
-                            + Drink water (2/8)
-                            <button type="button" class="btn btn-dark">Dark</button>
-                        </li>
-                        <li>
-                            + Exercise (0/1)
-                            <button type="button" class="btn btn-dark">Dark</button>
-                        </li>
-                        <li>
-                            + Sleep (8/8 hours)
-                            <button type="button" class="btn btn-dark">Dark</button>
-                        </li>
-                    </ul>    
+
+                <section class="habits habits-today col">
+                    <div class="habits-row row">
+                         Drink water (2/8)
+                            <button type="button" class="btn btn-outline-dark">Done!</button>
+                     </div>       
+                      <div class="row">
+                            Exercise (0/1)
+                            <button type="button" class="btn btn-outline-dark">Done!</button>
+                      </div>
+                      <div class="row"> 
+                            Sleep (8/8 hours)
+                            <button type="button" class="btn btn-outline-dark">Done!</button>
+                       </div> 
+
                 </section>
-            This week:
-                <section class="habits habits-week">
+            This week: <br/>
+                <section class="habits habits-week col">
+                    <div class="row"> 
+                        Read Book (1/2)
+                        <button type="button" class="btn btn-outline-dark">Done!</button>
+                   </div> 
 
                 </section>
             This month:
-                <section class="habits habits-month">
-
+                <section class="habits habits-month col">
+                    <div class="row"> 
+                        Learn JavaScript (1/1)
+                        <button type="button" class="btn btn-outline-dark">Done!</button>
+                   </div> 
                 </section>
         </div>
     </div>
 
     <div class="container container-feedback">
-
+        <p>
+            You have completed a streak of 10 days! <br/>
+            Well done!
+        </p>
 
     </div>
 
