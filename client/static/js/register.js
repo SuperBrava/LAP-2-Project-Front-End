@@ -18,6 +18,7 @@ function registerUser(e){
 
     if(validation === true){
         console.log('form has been validated no issues found')
+        
     }
     console.log('user', username, password, confirmPassword);
 }
