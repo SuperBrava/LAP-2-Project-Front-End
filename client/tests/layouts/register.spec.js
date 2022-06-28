@@ -1,3 +1,5 @@
+global.TextEncoder = require("util").TextEncoder;
+global.TextDecoder = require("util").TextDecoder;
 const fs = require('fs');
 const { JSDOM } = require('jsdom');
 const path = require('path');
@@ -52,7 +54,7 @@ describe('index.html', () => {
                 expect(form).toBeTruthy();
             });
     
-            describe('post input', () => {
+            describe('form inputs', () => {
                 test('it has an id of "username"', () => {
                     expect(username).toBeTruthy();
                 })
