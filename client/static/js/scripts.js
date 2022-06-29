@@ -10,16 +10,16 @@ function fetchData() {
 fetchData()
 
 // LOGGED IN USER ID --------------------------------- //
-let userID = 1;
+let userID = 2;
 
 // LOGGED IN USER ID --------------------------------- //
 function getHabits(data) {
     if (data[userID].habit_freq_type === "daily"){
         console.log(data[userID]);   //  -----------------------DAILY HABITS -------------------------------//
         console.log(data[userID].habit); 
-        console.log(data[userID].habit.habit_freq_type); 
-        console.log(data[userID].habit.habit_frequency);
-        console.log(data[userID].habit.habit_aim_total);  
+        console.log(data[userID].habit_freq_type); 
+        console.log(data[userID].habit_frequency);
+        console.log(data[userID].habit_aim_total);  
 
             // print info in html
             const habitRow = document.querySelector(".habits-row");
@@ -28,7 +28,7 @@ function getHabits(data) {
             
             habitItem.textContent = `${data[userID].habit} (${data[userID].habit_frequency}/${data[userID].habit_aim_total})`;   
             habitButton.textContent = "Done!";
-
+            //APPLY STYLES
             habitItem.classList.add("habits-daily-row"); 
             habitButton.classList.add("btn"); 
             habitButton.classList.add("btn-outline-dark");
@@ -50,7 +50,7 @@ function getHabits(data) {
             
             habitItem.textContent = `${data[userID].habit} (${data[userID].habit_frequency}/${data[userID].habit_aim_total})`;   
             habitButton.textContent = "Done!";
-    
+            //APPLY STYLES
             habitItem.classList.add("habits-weekly-row"); 
             habitButton.classList.add("btn"); 
             habitButton.classList.add("btn-outline-dark");
@@ -71,14 +71,14 @@ function getHabits(data) {
             
             habitItem.textContent = `${data[userID].habit} (${data[userID].habit_frequency}/${data[userID].habit_aim_total})`; 
             habitButton.textContent = "Done!";
-    
+             //APPLY STYLES
             habitItem.classList.add("habits-monthly-row"); 
             habitButton.classList.add("btn"); 
             habitButton.classList.add("btn-outline-dark");
     
             habitRow.appendChild(habitItem);
             habitRow.appendChild(habitButton);   
-    };};
+};};
 
 
     
