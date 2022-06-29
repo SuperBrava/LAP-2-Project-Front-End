@@ -32,9 +32,12 @@ function getHabits(data) {
             habitItem.classList.add("habits-daily-row"); 
             habitButton.classList.add("btn"); 
             habitButton.classList.add("btn-outline-dark");
+            habitButton.classList.add("completeHabit");
 
             habitRow.appendChild(habitItem);
             habitRow.appendChild(habitButton);
+            const habitButtonListener = document.querySelector(".completeHabit");
+            habitButtonX(habitButtonListener);
 
     } else if  (data[userID].habit_freq_type == "weekly") {
         console.log(data[userID]);    //  -----------------------WEEKLY HABITS -------------------------------//
@@ -54,9 +57,13 @@ function getHabits(data) {
             habitItem.classList.add("habits-weekly-row"); 
             habitButton.classList.add("btn"); 
             habitButton.classList.add("btn-outline-dark");
+            habitButton.classList.add("completeHabit");
     
             habitRow.appendChild(habitItem);
             habitRow.appendChild(habitButton);
+
+            const habitButtonListener = document.querySelector(".completeHabit");
+            habitButtonX(habitButtonListener);
     } else {
         console.log(data[userID]);  //  -----------------------MONTHLY HABITS -------------------------------//
         console.log(data[userID].habit); 
@@ -69,45 +76,46 @@ function getHabits(data) {
             const habitItem = document.createElement("div");
             const habitButton = document.createElement("button");
             
+            
             habitItem.textContent = `${data[userID].habit} (${data[userID].habit_frequency}/${data[userID].habit_aim_total})`; 
             habitButton.textContent = "Done!";
              //APPLY STYLES
             habitItem.classList.add("habits-monthly-row"); 
             habitButton.classList.add("btn"); 
             habitButton.classList.add("btn-outline-dark");
+            habitButton.classList.add("completeHabit");
     
             habitRow.appendChild(habitItem);
-            habitRow.appendChild(habitButton);   
+            habitRow.appendChild(habitButton); 
+            
+            const habitButtonListener = document.querySelector(".completeHabit");
+            habitButtonX(habitButtonListener);
 };};
-
-
     
-// // BUTTON FUCNTION TO ADD COMPLETED HABIT
-let  = document.querySelector("#completeButton").addEventListener("click", (e) => {
-     e.preventDefault();
-     habitFrequencyPlusOne(); //button event listener function to update
-    });
+// // BUTTON FUNCTION TO ADD COMPLETED HABIT
+// const habitButton = document.querySelector(".completeHabit");
+function habitButtonX(habitButton) {
+    habitButton.addEventListener("click", e => console.log("CLICK"));
+}; 
 
 //POST REQUEST FOR +1 FOR COMPLETED HABIT
 async function habitFrequencyPlusOne(){
     console.log('Plus one to habit frequency')
-        const data = {
-            data[userID].habit_frequency ++;
-            return data;
-        }
+        const data = 
+            data[userID].habit_frequency++;  //SELECTING USER HABIT TO INCREMENT PLUS ONE     
         try {
             const options = {
                 method: 'POST',
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(data)
             }
-            console.log(options);
-            const response = await fetch('`https://lap-2-project-backend.herokuapp.com/api/habits', options);
-            const { id, err } = await response.json();
+            console.log(options); 
+            const response = await fetch('https://lap-2-project-backend.herokuapp.com/api/habits', options);
+            const { id, err } = await response.json();  // id - REQUIRED UPDATING FOR SPECIFIC FUNCTION?
             if(err) {
                 throw Error(err)
             } else {
-                showToast();
+                console.log("SUCCESS");  
             }
         } catch (err) {
             console.warn(err);
