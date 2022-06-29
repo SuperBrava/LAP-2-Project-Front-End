@@ -83,26 +83,37 @@ function getHabits(data) {
 
     
 // // BUTTON FUCNTION TO ADD COMPLETED HABIT
-// let  = document.querySelector("#completeButton").addEventListener("click", (e) => {
-//      e.preventDefault();
-//      habitFrequencyPlusOne(); //button event listener function to update
-//     });
+let  = document.querySelector("#completeButton").addEventListener("click", (e) => {
+     e.preventDefault();
+     habitFrequencyPlusOne(); //button event listener function to update
+    });
 
-//POST REQUEST FOR COMPLETED HABIT
-function habitFrequencyPlusOne() {
-    fetch(`https://lap-2-project-backend.herokuapp.com/api/habits`, //USER ROUTE REQUIRED 
-     {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.parse(data), 
-        })
-    .then(() => { getUserData(); })
-    .catch((error) => {
-        console.error('Error: POST Request Unsuccessful', error);
-     });
-    };
+//POST REQUEST FOR +1 FOR COMPLETED HABIT
+async function habitFrequencyPlusOne(){
+    console.log('Plus one to habit frequency')
+        const data = {
+            data[userID].habit_frequency ++;
+            return data;
+        }
+        try {
+            const options = {
+                method: 'POST',
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(data)
+            }
+            console.log(options);
+            const response = await fetch('`https://lap-2-project-backend.herokuapp.com/api/habits', options);
+            const { id, err } = await response.json();
+            if(err) {
+                throw Error(err)
+            } else {
+                showToast();
+            }
+        } catch (err) {
+            console.warn(err);
+        }
+    }
+
 
 // fetch(`${hostAndPort}/api/habits/`)
 //      .then(data => {
