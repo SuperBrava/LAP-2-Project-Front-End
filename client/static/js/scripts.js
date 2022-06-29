@@ -2,39 +2,55 @@ const hostAndPort = 'https://lap-2-project-backend.herokuapp.com/'; // This is f
 
 //JSON GET User Data
 function fetchData() {
-    fetch('https://lap-2-project-backend.herokuapp.com/api/habits')
+     fetch('https://lap-2-project-backend.herokuapp.com/api/habits')
     .then(response => response.json())
-    .then(data => {getHabits(data)});
+    .then(data => {getHabits(data)})
 };
 
 fetchData()
 
 function getHabits(data) {
-    console.log(data);
-    data.forEach(element => {
-         console.log(element);
+    console.log(data[4]);   // Query logged in user ID = `${user.id}`
+    console.log(data[4].habit);  
 
-    })
-};
+        // print info in html
+        const habitRow = document.querySelector(".habits-row");
+        const habitItem = document.createElement("div");
+        const habitButton = document.createElement("button");
+        
+        habitItem.textContent = `${data[4].habit} (1/8)`;   // TO ADD = (${habitFrequency}/${habitTotal})
+        habitButton.textContent = "Done!";
 
+        habitItem.classList.add("habits-row"); 
+        habitButton.classList.add("btn"); 
+        habitButton.classList.add("btn-outline-dark");
 
+        habitRow.appendChild(habitItem);
+        habitRow.appendChild(habitButton);
+    };
 
+    
+// // BUTTON FUCNTION TO ADD COMPLETED HABIT
+let  = document.querySelector("#completeButton").addEventListener("click", (e) => {
+     e.preventDefault();
+     habitFrequencyPlusOne();
+     //button function to update
+    });
 
-
-
-//  fetch(`${hostAndPort}/api/habits/`,  {
-//         method: 'GET',
-//         headers: {
-//             'Content-Type': 'application/json',
-//         },
-//         body: JSON.parse(data), 
-//         })
-//     .then(() => {
-//        getUserData();
-//     })
-//     .catch((error) => {
-//         console.error('Error: Get Request Unsuccessful', error);
-//      });
+//POST REQUEST FOR COMPLETED HABIT
+function habitFrequencyPlusOne () {
+    fetch(`https://lap-2-project-backend.herokuapp.com/api/habits`,  {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.parse(data), 
+        })
+    .then(() => { getUserData(); })
+    .catch((error) => {
+        console.error('Error: Get Request Unsuccessful', error);
+     });
+    };
 
 // fetch(`${hostAndPort}/api/habits/`)
 //      .then(data => {
