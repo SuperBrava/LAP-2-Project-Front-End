@@ -1,0 +1,74 @@
+*{
+    font-family: 'Lato', sans-serif !important;
+}
+.grid-container {
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: auto 800px auto;
+    grid-gap: 10px;
+}
+
+.grid-container > div {
+    text-align: center;
+    font-size: 30px;
+}
+.item1 {
+    margin-bottom: 30px;
+}
+.item2 {
+    margin-bottom: 30px;
+}
+.item3 {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    grid-template-rows: auto auto auto;
+    grid-gap: 10px;
+}
+.item3 > div {
+    text-align: center;
+    font-size: 30px;
+
+}
+
+.item3 > div > img{
+    height: 300px;
+    width: 300px;
+    margin-bottom: 30px;
+}
+#landingImage {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    position: relative;
+}
+
+.landHead {
+    width: 300px;
+    position: absolute;
+    top: 20%;
+    left: 10%;
+    text-emphasis: center;
+}
+
+button {
+    margin-top: 20px;
+    background-color: #4CAF50; /* Green */
+    border: none!important;
+    outline: none!important;
+    border-radius: 5px;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+button > a, a:hover, a:focus, a:active {
+    text-decoration: none;
+    color: white;
+}
+.sticky-div {
+    position: sticky;
+    top: 0px;
+    z-index:100;
+}
