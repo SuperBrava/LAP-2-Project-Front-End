@@ -37,7 +37,7 @@ label{
     margin: 15px 0 3px;
 }
 
-input[type=text],input[type=password]{
+input[type=text],input[type=password],input[type=number],#type{
     width: 90%;
     line-height: 50px;
     border: 1px solid #ccc;
@@ -114,3 +114,36 @@ Grey Font/Border color: #646464 */
     from {bottom: 30px; opacity: 1;}
     to {bottom: 0; opacity: 0;}
   }
+
+  /* add habit overlay */
+
+  #overlay {
+    position: fixed;
+    display: none;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.5);
+    z-index: 2;
+    cursor: pointer;
+}
+
+.overlayText{
+    color: white;
+}
+
+#exitForm {
+    text-align: center;
+    float: right;
+    border-radius: 5px;
+    background-color: red;
+    color: white;
+    width: 30px;
+}
+
+#type{
+    height: 50px;
+}

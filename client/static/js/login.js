@@ -33,15 +33,21 @@ async function loginUser(e){
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(data)
         }
-        console.log(options);
         const response = await fetch('https://lap-2-project-backend.herokuapp.com/api/login', options);
-        const { id, err } = await response.json();
-        if(err) { 
-            throw Error(err) 
-        } else {
-            console('success of some sort')
-        }
+        const responseData = await response.json();
+        if(responseData.err) {throw Error(responseData.err) }
+        else{login(responseData); }
     } catch (err) {
         console.warn(err);
     }
+}
+
+function login(data){
+    console.log('data', data)
+    const payload = jwt_decode(data.token);
+    console.log('payload', payload)
+    // localStorage.setItem('token', data.token);
+    // localStorage.setItem('id', payload.id);
+    // localStorage.setItem('username', payload.username);
+    // localStorage.setItem('email', payload.email);
 }
