@@ -9,20 +9,24 @@ function fetchData() {
 
 fetchData()
 
+// LOGGED IN USER ID --------------------------------- //
+let userID = 1;
+
+// LOGGED IN USER ID --------------------------------- //
 function getHabits(data) {
-    if (data[4].habit_freq_type === "Daily"){
-        console.log(data[4]);   // Query logged in user ID = `${user.id}`
-        console.log(data[4].habit); 
-        console.log(data[4].habit_freq_type); 
-        console.log(data[4].habit_freq);
-        console.log(data[4].habit_aim_total);  
+    if (data[userID].habit_freq_type === "daily"){
+        console.log(data[userID]);   //  -----------------------DAILY HABITS -------------------------------//
+        console.log(data[userID].habit); 
+        console.log(data[userID].habit.habit_freq_type); 
+        console.log(data[userID].habit.habit_frequency);
+        console.log(data[userID].habit.habit_aim_total);  
 
             // print info in html
             const habitRow = document.querySelector(".habits-row");
             const habitItem = document.createElement("div");
             const habitButton = document.createElement("button");
             
-            habitItem.textContent = `${data[4].habit} (${data[4].habit_freq}/${data[4].habit_aim_total})`;   
+            habitItem.textContent = `${data[userID].habit} (${data[userID].habit_frequency}/${data[userID].habit_aim_total})`;   
             habitButton.textContent = "Done!";
 
             habitItem.classList.add("habits-daily-row"); 
@@ -31,19 +35,20 @@ function getHabits(data) {
 
             habitRow.appendChild(habitItem);
             habitRow.appendChild(habitButton);
-    } else if  (data[4].habit_freq_type === "Weekly") {
-        console.log(data[4]);   // Query logged in user ID = `${user.id}`
-        console.log(data[4].habit); 
-        console.log(data[4].habit_freq_type); 
-        console.log(data[4].habit_freq);
-        console.log(data[4].habit_aim_total);  
+
+    } else if  (data[userID].habit_freq_type == "weekly") {
+        console.log(data[userID]);    //  -----------------------WEEKLY HABITS -------------------------------//
+        console.log(data[userID].habit); 
+        console.log(data[userID].habit_freq_type); 
+        console.log(data[userID].habit_frequency);
+        console.log(data[userID].habit_aim_total);  
     
             // print info in html
             const habitRow = document.querySelector(".habits-weekly-row");
             const habitItem = document.createElement("div");
             const habitButton = document.createElement("button");
             
-            habitItem.textContent = `${data[4].habit} (${data[4].habit_freq}/${data[4].habit_aim_total})`;   /
+            habitItem.textContent = `${data[userID].habit} (${data[userID].habit_frequency}/${data[userID].habit_aim_total})`;   
             habitButton.textContent = "Done!";
     
             habitItem.classList.add("habits-weekly-row"); 
@@ -53,18 +58,18 @@ function getHabits(data) {
             habitRow.appendChild(habitItem);
             habitRow.appendChild(habitButton);
     } else {
-        console.log(data[4]);   // Query logged in user ID = `${user.id}`
-        console.log(data[4].habit); 
-        console.log(data[4].habit_freq_type); 
-        console.log(data[4].habit_freq);
-        console.log(data[4].habit_aim_total);  
+        console.log(data[userID]);  //  -----------------------MONTHLY HABITS -------------------------------//
+        console.log(data[userID].habit); 
+        console.log(data[userID].habit_freq_type); 
+        console.log(data[userID].habit_frequency);
+        console.log(data[userID].habit_aim_total);  
     
             // print info in html
             const habitRow = document.querySelector(".habits-monthly-row");
             const habitItem = document.createElement("div");
             const habitButton = document.createElement("button");
             
-            habitItem.textContent = `${data[4].habit} (${data[4].habit_freq}/${data[4].habit_aim_total})`;   /
+            habitItem.textContent = `${data[userID].habit} (${data[userID].habit_frequency}/${data[userID].habit_aim_total})`; 
             habitButton.textContent = "Done!";
     
             habitItem.classList.add("habits-monthly-row"); 
@@ -73,15 +78,15 @@ function getHabits(data) {
     
             habitRow.appendChild(habitItem);
             habitRow.appendChild(habitButton);   
-    };
+    };};
 
 
     
 // // BUTTON FUCNTION TO ADD COMPLETED HABIT
-let  = document.querySelector("#completeButton").addEventListener("click", (e) => {
-     e.preventDefault();
-     habitFrequencyPlusOne(); //button event listener function to update
-    });
+// let  = document.querySelector("#completeButton").addEventListener("click", (e) => {
+//      e.preventDefault();
+//      habitFrequencyPlusOne(); //button event listener function to update
+//     });
 
 //POST REQUEST FOR COMPLETED HABIT
 function habitFrequencyPlusOne() {
@@ -95,7 +100,7 @@ function habitFrequencyPlusOne() {
         })
     .then(() => { getUserData(); })
     .catch((error) => {
-        console.error('Error: Get Request Unsuccessful', error);
+        console.error('Error: POST Request Unsuccessful', error);
      });
     };
 
