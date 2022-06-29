@@ -11,14 +11,15 @@ fetchData()
 
 function getHabits(data) {
     console.log(data[4]);   // Query logged in user ID = `${user.id}`
-    console.log(data[4].habit);  
+    console.log(data[4].habit); 
+    console.log(data[4].hours_per_day);  
 
         // print info in html
         const habitRow = document.querySelector(".habits-row");
         const habitItem = document.createElement("div");
         const habitButton = document.createElement("button");
         
-        habitItem.textContent = `${data[4].habit} (1/8)`;   // TO ADD = (${habitFrequency}/${habitTotal})
+        habitItem.textContent = `${data[4].habit} (${data[4].hours_per_day}/8)`;   // TO ADD = (${habitFrequency}/${habitTotal})
         habitButton.textContent = "Done!";
 
         habitItem.classList.add("habits-row"); 
@@ -29,17 +30,25 @@ function getHabits(data) {
         habitRow.appendChild(habitButton);
     };
 
+function getWeeklyHabits(data) {
+      console.log(data[4].habit);
+      console.log(data[4].habit_freq_type); 
+      console.log(data[4].habit_freq);
+      console.log(data[4].habit_total);   
+          
+};
+
     
 // // BUTTON FUCNTION TO ADD COMPLETED HABIT
 let  = document.querySelector("#completeButton").addEventListener("click", (e) => {
      e.preventDefault();
-     habitFrequencyPlusOne();
-     //button function to update
+     habitFrequencyPlusOne(); //button event listener function to update
     });
 
 //POST REQUEST FOR COMPLETED HABIT
-function habitFrequencyPlusOne () {
-    fetch(`https://lap-2-project-backend.herokuapp.com/api/habits`,  {
+function habitFrequencyPlusOne() {
+    fetch(`https://lap-2-project-backend.herokuapp.com/api/habits`, //USER ROUTE REQUIRED 
+     {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
