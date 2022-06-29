@@ -10,33 +10,71 @@ function fetchData() {
 fetchData()
 
 function getHabits(data) {
-    console.log(data[4]);   // Query logged in user ID = `${user.id}`
-    console.log(data[4].habit); 
-    console.log(data[4].hours_per_day);  
+    if (data[4].habit_freq_type === "Daily"){
+        console.log(data[4]);   // Query logged in user ID = `${user.id}`
+        console.log(data[4].habit); 
+        console.log(data[4].habit_freq_type); 
+        console.log(data[4].habit_freq);
+        console.log(data[4].habit_aim_total);  
 
-        // print info in html
-        const habitRow = document.querySelector(".habits-row");
-        const habitItem = document.createElement("div");
-        const habitButton = document.createElement("button");
-        
-        habitItem.textContent = `${data[4].habit} (${data[4].hours_per_day}/8)`;   // TO ADD = (${habitFrequency}/${habitTotal})
-        habitButton.textContent = "Done!";
+            // print info in html
+            const habitRow = document.querySelector(".habits-row");
+            const habitItem = document.createElement("div");
+            const habitButton = document.createElement("button");
+            
+            habitItem.textContent = `${data[4].habit} (${data[4].habit_freq}/${data[4].habit_aim_total})`;   
+            habitButton.textContent = "Done!";
 
-        habitItem.classList.add("habits-row"); 
-        habitButton.classList.add("btn"); 
-        habitButton.classList.add("btn-outline-dark");
+            habitItem.classList.add("habits-daily-row"); 
+            habitButton.classList.add("btn"); 
+            habitButton.classList.add("btn-outline-dark");
 
-        habitRow.appendChild(habitItem);
-        habitRow.appendChild(habitButton);
+            habitRow.appendChild(habitItem);
+            habitRow.appendChild(habitButton);
+    } else if  (data[4].habit_freq_type === "Weekly") {
+        console.log(data[4]);   // Query logged in user ID = `${user.id}`
+        console.log(data[4].habit); 
+        console.log(data[4].habit_freq_type); 
+        console.log(data[4].habit_freq);
+        console.log(data[4].habit_aim_total);  
+    
+            // print info in html
+            const habitRow = document.querySelector(".habits-weekly-row");
+            const habitItem = document.createElement("div");
+            const habitButton = document.createElement("button");
+            
+            habitItem.textContent = `${data[4].habit} (${data[4].habit_freq}/${data[4].habit_aim_total})`;   /
+            habitButton.textContent = "Done!";
+    
+            habitItem.classList.add("habits-weekly-row"); 
+            habitButton.classList.add("btn"); 
+            habitButton.classList.add("btn-outline-dark");
+    
+            habitRow.appendChild(habitItem);
+            habitRow.appendChild(habitButton);
+    } else {
+        console.log(data[4]);   // Query logged in user ID = `${user.id}`
+        console.log(data[4].habit); 
+        console.log(data[4].habit_freq_type); 
+        console.log(data[4].habit_freq);
+        console.log(data[4].habit_aim_total);  
+    
+            // print info in html
+            const habitRow = document.querySelector(".habits-monthly-row");
+            const habitItem = document.createElement("div");
+            const habitButton = document.createElement("button");
+            
+            habitItem.textContent = `${data[4].habit} (${data[4].habit_freq}/${data[4].habit_aim_total})`;   /
+            habitButton.textContent = "Done!";
+    
+            habitItem.classList.add("habits-monthly-row"); 
+            habitButton.classList.add("btn"); 
+            habitButton.classList.add("btn-outline-dark");
+    
+            habitRow.appendChild(habitItem);
+            habitRow.appendChild(habitButton);   
     };
 
-function getWeeklyHabits(data) {
-      console.log(data[4].habit);
-      console.log(data[4].habit_freq_type); 
-      console.log(data[4].habit_freq);
-      console.log(data[4].habit_total);   
-          
-};
 
     
 // // BUTTON FUCNTION TO ADD COMPLETED HABIT
