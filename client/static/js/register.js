@@ -2,8 +2,11 @@ const form = document.getElementById('registerForm');
 form.addEventListener('submit', registerUser);
 
 const togglePasswordButton = document.querySelector('#togglePassword');
+const toggleConfirmPasswordButton = document.querySelector('#toggleConfirmPassword');
 const password = document.querySelector('#password');
+const confirmPassword = document.querySelector('#confirmPassword');
 togglePasswordButton.addEventListener('click', togglePassword);
+toggleConfirmPasswordButton.addEventListener('click', toggleConfirmPassword);
 
 //register user function
 function registerUser(e){
@@ -63,6 +66,14 @@ function togglePassword(e){
     // toggle the eye slash icon
     this.classList.toggle('fa-eye-slash');
 }
+function toggleConfirmPassword(e){
+    e.preventDefault();
+    const type = confirmPassword.getAttribute('type') === 'password' ? 'text' : 'password';
+    confirmPassword.setAttribute('type', type);
+    // toggle the eye slash icon
+    this.classList.toggle('fa-eye-slash');
+}
+
 
 async function newUser(usernameInput, emailInput, passwordInput){
     console.log('adding new user')

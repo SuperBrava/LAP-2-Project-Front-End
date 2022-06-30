@@ -126,7 +126,7 @@ Grey Font/Border color: #646464 */
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: rgba(0,0,0,0.5);
+    background-color: rgba(0,0,0,0.8);
     z-index: 2;
     cursor: pointer;
 }
@@ -146,4 +146,8 @@ Grey Font/Border color: #646464 */
 
 #type{
     height: 50px;
+}
+
+#mainPageLogo{
+    margin: 0px 0px 30px 0px;
 }

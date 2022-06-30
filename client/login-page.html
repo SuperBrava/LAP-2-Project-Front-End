@@ -14,7 +14,9 @@
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
       <link rel="stylesheet" href="./static/css/register-login.css">
 
-
+        <!-- JWT  -->
+        <script src='https://cdn.jsdelivr.net/npm/jwt-decode@1.5.1/build/jwt-decode.min.js'></script> 
+        
       <!--Local CSS & JS-->
       <link rel="stylesheet" href="./static/css/style.css">
       <script defer href="./static/js/scripts.js"></script>
@@ -26,9 +28,9 @@
             <div class="mainBody">
                 <img class="logo" src="./static/images/habit-tracker-gif-looponce.gif" alt="Girl in a jacket">
                 <h1>Welcome Back.</h1>
-                <form>
-                    <label for="username">Username:</label>
-                    <input type="text" id="username" name="username" required>
+                <form id="loginForm">
+                    <label for="email">Email:</label>
+                    <input type="text" id="email" name="email" required>
                     <label for="password">Password:</label>
                     <p>
                         <input type="password" name="password" id="password" required>
