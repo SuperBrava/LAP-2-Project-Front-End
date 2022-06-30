@@ -11,6 +11,8 @@ function registerUser(e){
     console.log('register function')
     //get values of form inputs
     const username = document.getElementById('username').value;
+    const email = document.getElementById('email').value;
+    console.log(email)
     const password = document.getElementById('password').value;
     const confirmPassword = document.getElementById('confirmPassword').value;
     //validate form when user clicks submit button
@@ -18,9 +20,9 @@ function registerUser(e){
 
     if(validation === true){
         console.log('form has been validated no issues found')
-        
+        newUser(username, email, password);
     }
-    console.log('user', username, password, confirmPassword);
+    console.log('user', username, email, password, confirmPassword);
 }
 // Function to valide the form inputs - register form
 function formValidaiton(username, password, confirmPassword){
@@ -53,7 +55,7 @@ function formValidaiton(username, password, confirmPassword){
     }
     return true;
 }
-//Function to toggle password - so user can the text of the password
+//Function to toggle password - so user can see the text of the password
 function togglePassword(e){
     e.preventDefault();
     const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
@@ -61,3 +63,37 @@ function togglePassword(e){
     // toggle the eye slash icon
     this.classList.toggle('fa-eye-slash');
 }
+
+async function newUser(usernameInput, emailInput, passwordInput){
+    console.log('adding new user')
+    const data = {
+        username: usernameInput,
+        email: emailInput,
+        user_password: passwordInput
+    }
+    try {
+        const options = {
+            method: 'POST',
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(data)
+        }
+        console.log(options);
+        const response = await fetch('https://lap-2-project-backend.herokuapp.com/api/register', options);
+        const { id, err } = await response.json();
+        if(err) { 
+            throw Error(err) 
+        } else {
+            showToast();
+        }
+    } catch (err) {
+        console.warn(err);
+    }
+    
+}
+
+function showToast() {
+    console.log('snackbar showing...')
+    var toast = document.getElementById("snackbar");
+    toast.className = "show";
+    //setTimeout(function(){ toast.className = toast.className.replace("show", ""); }, 3000);
+  }

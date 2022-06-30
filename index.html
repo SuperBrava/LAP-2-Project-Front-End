@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-       <!--Bootstrap CSS -->
-       <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <!--Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
       <!-- Google Fonts -->
       <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -17,10 +17,12 @@
        <!-- Favicon Image -->
        <link rel="shortcut icon" href="./client/static/assets/favicon.ico" type="image/x-icon" />  
 
-
-      <!--Local CSS & JS-->
-      <link rel="stylesheet" href="./client/static/css/style.css">
-      <script defer href="./client/static/js/scripts.js"></script>
+       <!-- JWT -->
+       <script src='https://cdn.jsdelivr.net/npm/jwt-decode@1.5.1/build/jwt-decode.min.js'></script> 
+       
+       <!--Local CSS & JS-->
+       <link rel="stylesheet" href="./client/static/css/style.css">
+       <script defer href="./client/static/js/scripts.js"></script>
    
        <title>Habit Tracker: Login</title>
    </head>
@@ -29,11 +31,11 @@
             <div class="mainBody">
                 <img class="logo" src="./client/static/images/habit-tracker-gif-looponce.gif" alt="Girl in a jacket">
                 <h1>Welcome Back.</h1>
-                <form>
-                    <label for="username">Username:</label>
-                    <input type="text" id="username" name="username" required>
+                <form id="loginForm">
+                    <label for="email">email:</label>
+                    <input type="text" id="email" name="email" required>
                     <label for="password">Password:</label>
-                    <p>
+                    <p id="user-password">
                         <input type="password" name="password" id="password" required>
                         <i class="far fa-eye" id="togglePassword" style="margin-left: -30px; cursor: pointer;"></i>
                     </p>
