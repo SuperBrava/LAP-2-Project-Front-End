@@ -7,7 +7,7 @@
     "test": "tests"
   },
   "scripts": {
-    "test": "jest --watch --noStackTrace",
+    "test": "jest --watchAll --silent",
     "coverage": "jest --coverage"
   },
   "keywords": [],
@@ -19,7 +19,7 @@
     "jsdom": "^20.0.0"
   },
   "jest": {
-    "testEnvironment": "jsdom",
-    "verbose": true
+    "collectCoverage": true,
+    "collectCoverageFrom": ["./static/js/.{js}"]
   }
 }
