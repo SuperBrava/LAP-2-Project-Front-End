@@ -1,32 +1,42 @@
 const hostAndPort = 'https://lap-2-project-backend.herokuapp.com/'; // This is for production
+// LOGGED IN USER ID --------------------------------- //
+let userID = 5;
 
 //JSON GET User Data
 function fetchData() {
-     fetch('https://lap-2-project-backend.herokuapp.com/api/habits')
+     fetch(`https://lap-2-project-backend.herokuapp.com/api/users/${userID}`)
     .then(response => response.json())
-    .then(data => {getHabits(data)})
+    .then(data => {printHabits(data)})
 };
 
 fetchData()
 
 // LOGGED IN USER ID --------------------------------- //
-let userID = 2;
+function printHabits(data) {
+    let getHabits = data;
+    
+    getHabits.forEach(element => console.log(element));
+    getHabits.forEach(element => sortingFunction(element));
+    // }; 
 
-// LOGGED IN USER ID --------------------------------- //
-function getHabits(data) {
-    if (data[userID].habit_freq_type === "daily"){
-        console.log(data[userID]);   //  -----------------------DAILY HABITS -------------------------------//
-        console.log(data[userID].habit); 
-        console.log(data[userID].habit_freq_type); 
-        console.log(data[userID].habit_frequency);
-        console.log(data[userID].habit_aim_total);  
+    function sortingFunction(sorting) {
 
+        console.log(sorting); 
+        console.log(sorting.habit); 
+        console.log(sorting.habit_frequency_type); 
+        console.log(sorting.habit_frequency);
+        console.log(sorting.habit_aim);
+        console.log(sorting.length); 
+
+    if (sorting.habit_frequency_type === "Daily"){        
+         //  -----------------------DAILY HABITS -------------------------------//
             // print info in html
-            const habitRow = document.querySelector(".habits-row");
+            const habitRow = document.querySelector(".habits-daily-row");
             const habitItem = document.createElement("div");
             const habitButton = document.createElement("button");
+            const habitSpacer = document.createElement("br")
             
-            habitItem.textContent = `${data[userID].habit} (${data[userID].habit_frequency}/${data[userID].habit_aim_total})`;   
+            habitItem.textContent = `${sorting.habit} (${sorting.habit_frequency}/${sorting.habit_aim})`;   
             habitButton.textContent = "Done!";
             //APPLY STYLES
             habitItem.classList.add("habits-daily-row"); 
@@ -36,22 +46,21 @@ function getHabits(data) {
 
             habitRow.appendChild(habitItem);
             habitRow.appendChild(habitButton);
-            const habitButtonListener = document.querySelector(".completeHabit");
-            habitButtonX(habitButtonListener);
+            habitRow.appendChild(habitSpacer);
+           
+            // const habitButtonListener = document.querySelector(".completeHabit");
+            // habitButtonX(habitButtonListener);
 
-    } else if  (data[userID].habit_freq_type == "weekly") {
-        console.log(data[userID]);    //  -----------------------WEEKLY HABITS -------------------------------//
-        console.log(data[userID].habit); 
-        console.log(data[userID].habit_freq_type); 
-        console.log(data[userID].habit_frequency);
-        console.log(data[userID].habit_aim_total);  
-    
+    } else if  (data[userID].habit_frequency_type == "Weekly") {
+           //  -----------------------WEEKLY HABITS -------------------------------//
+            
             // print info in html
             const habitRow = document.querySelector(".habits-weekly-row");
             const habitItem = document.createElement("div");
             const habitButton = document.createElement("button");
+            const habitSpacer = document.createElement("br")
             
-            habitItem.textContent = `${data[userID].habit} (${data[userID].habit_frequency}/${data[userID].habit_aim_total})`;   
+            habitItem.textContent = `${sorting.habit} (${sorting.habit_frequency}/${sorting.habit_aim})`;  
             habitButton.textContent = "Done!";
             //APPLY STYLES
             habitItem.classList.add("habits-weekly-row"); 
@@ -61,23 +70,20 @@ function getHabits(data) {
     
             habitRow.appendChild(habitItem);
             habitRow.appendChild(habitButton);
+            habitRow.appendChild(habitSpacer);
 
-            const habitButtonListener = document.querySelector(".completeHabit");
-            habitButtonX(habitButtonListener);
+            // const habitButtonListener = document.querySelector(".completeHabit");
+            // habitButtonX(habitButtonListener);
     } else {
-        console.log(data[userID]);  //  -----------------------MONTHLY HABITS -------------------------------//
-        console.log(data[userID].habit); 
-        console.log(data[userID].habit_freq_type); 
-        console.log(data[userID].habit_frequency);
-        console.log(data[userID].habit_aim_total);  
-    
+         //  -----------------------MONTHLY HABITS -------------------------------//
+       
             // print info in html
             const habitRow = document.querySelector(".habits-monthly-row");
             const habitItem = document.createElement("div");
             const habitButton = document.createElement("button");
+            const habitSpacer = document.createElement("br")
             
-            
-            habitItem.textContent = `${data[userID].habit} (${data[userID].habit_frequency}/${data[userID].habit_aim_total})`; 
+            habitItem.textContent = `${sorting.habit} (${sorting.habit_frequency}/${sorting.habit_aim})`;   
             habitButton.textContent = "Done!";
              //APPLY STYLES
             habitItem.classList.add("habits-monthly-row"); 
@@ -87,41 +93,63 @@ function getHabits(data) {
     
             habitRow.appendChild(habitItem);
             habitRow.appendChild(habitButton); 
+            habitRow.appendChild(habitSpacer);
             
-            const habitButtonListener = document.querySelector(".completeHabit");
-            habitButtonX(habitButtonListener);
-};};
+            // const habitButtonListener = document.querySelector(".completeHabit");
+            // habitButtonX(habitButtonListener);
+    };}
+};
+
+
+
     
 // // BUTTON FUNCTION TO ADD COMPLETED HABIT
 // const habitButton = document.querySelector(".completeHabit");
-function habitButtonX(habitButton) {
-    habitButton.addEventListener("click", e => console.log("CLICK"));
-    habitFrequencyPlusOne();
-}; 
+// function habitButtonX(habitButton) {
+//     habitButton.addEventListener("click", e => console.log("CLICK"));
+//     habitFrequencyPlusOne();
+// }; 
+
+// async function habitFrequencyPlusOne(){  ///ACYNC AWAIT ISSUE?
+//     let url = `https://lap-2-project-backend.herokuapp.com/api/users/${userID}`;
+//     let dataToUpdate = {
+//         user_id: 4,
+//         id: 1,
+//         habit_frequency: 5
+//     }
+
+//     let options = {
+//         method: "PUT",
+//         body: JSON.stringify(dataToUpdate)
+//     }
+//     fetch(url, options)
+//     .then(response => console.log(response.status))
+//     .catch(response => console.log(response.status))
+// }
 
 //POST REQUEST FOR +1 FOR COMPLETED HABIT
-async function habitFrequencyPlusOne(){
-    console.log('Plus one to habit frequency')
-        const data = 
-            data[userID].habit_frequency++;  //SELECTING USER HABIT TO INCREMENT PLUS ONE     
-        try {
-            const options = {
-                method: 'PUT',
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify(data)
-            }
-            console.log(options); 
-            const response = await fetch('https://lap-2-project-backend.herokuapp.com/api/habits', options);
-            // const { response, err } = await response.json();  
-            if(err) {
-                throw Error(err)
-            } else {
-                console.log("SUCCESS");  
-            }
-        } catch (err) {
-            console.warn(err);
-        }
-    }
+// async function habitFrequencyPlusOne(){
+//     console.log('Plus one to habit frequency')
+//         const updateData = 
+//             data[userID].habit_frequency++;  //SELECTING USER HABIT TO INCREMENT PLUS ONE     
+//         try {
+//             let options = {
+//                 method: 'PUT',
+//                 headers: { "Content-Type": "application/json" },
+//                 body: JSON.stringify(updateData)
+//             }
+//             console.log(options); 
+//             const response = await fetch('https://lap-2-project-backend.herokuapp.com/api/habits', options);
+//             // const { response, err } = await response.json();  
+//             if(err) {
+//                 throw Error(err)
+//             } else {
+//                 console.log("SUCCESS");  
+//             }
+//         } catch (err) {
+//             console.warn(err);
+//         }
+//     }
 
 
 // fetch(`${hostAndPort}/api/habits/`)
