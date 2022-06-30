@@ -111,7 +111,7 @@ async function habitFrequencyPlusOne(){
             }
             console.log(options); 
             const response = await fetch('https://lap-2-project-backend.herokuapp.com/api/habits', options);
-            const { id, err } = await response.json();  // id - REQUIRED UPDATING FOR SPECIFIC FUNCTION?
+            const { id, err } = await response.json();  // id - REQUIRED UPDATING FOR SPECIFIC FUNCTION
             if(err) {
                 throw Error(err)
             } else {
