@@ -1,11 +1,9 @@
-global.TextEncoder = require("util").TextEncoder;
-global.TextDecoder = require("util").TextDecoder;
 const fs = require('fs');
 const { JSDOM } = require('jsdom');
 const path = require('path');
 const html = fs.readFileSync(path.resolve(__dirname, '../../login-page.html'), 'utf8');
 const page = new JSDOM(html);
-const login = 
+
 describe('index.html', () => {
     describe('head', () => {
         test('it has a title', () => {

@@ -8,7 +8,7 @@
   },
   "scripts": {
     "test": "jest --watchAll --silent",
-    "coverage": "jest --coverage"
+    "coverage": "jest --coverage --silent"
   },
   "keywords": [],
   "author": "",
@@ -20,6 +20,10 @@
   },
   "jest": {
     "collectCoverage": true,
-    "collectCoverageFrom": ["./static/js/.{js}"]
+    "collectCoverageFrom": [
+      "**/*.{js,jsx,html}",
+      "!**/node_modules/**",
+      "!**/coverage/**"
+    ]
   }
 }

@@ -43,15 +43,15 @@ async function loginUser(e){
 }
 
 function login(data){
-    console.log('data', data)
+    // console.log('data', data)
     const payload = jwt_decode(data.token);
-    console.log('payload', payload)
+    // console.log('payload', payload)
 
 
-    console.log('token', data.token)
-    console.log('id', data.id);
-    console.log('username', payload.username)
-    console.log('email', payload.email)
+    // console.log('token', data.token)
+    // console.log('id', data.id);
+    // console.log('username', payload.username)
+    // console.log('email', payload.email)
 
 
     localStorage.setItem('token', data.token);
