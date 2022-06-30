@@ -14,10 +14,9 @@
 
       <!--Local CSS & JS-->
       <link rel="stylesheet" href="./static/css/style.css">
-      <script defer href="./static/js/scripts.js"></script>
-
+      
       <!-- Favicon Image -->
-      <link rel="icon" type="image/png" href="./static/assets/habit-tracker-favicon.png"/>
+      <link rel="shortcut icon" href="./static/assets/favicon.ico" type="image/x-icon">
    
        <title>Habit Tracker</title>
    </head>
@@ -26,41 +25,30 @@
     <img class="logo" src="./static/assets/habit-tracker-gif-looponce.gif" alt="Habit tracker logo"/>
 
     <div class="container container-main">
-        <div class="today">
+        <div>
+                
             Today: <br/>
-
                 <section class="habits habits-today col">
-                    <div class="habits-row row">
-                         Drink water (2/8)
-                            <button type="button" class="btn btn-outline-dark">Done!</button>
+                    <div class="habits-daily-row habits-row row">
+                         <!-- API FETCH DAILY HABITS -->
                      </div>       
-                      <div class="row">
-                            Exercise (0/1)
-                            <button type="button" class="btn btn-outline-dark">Done!</button>
-                      </div>
-                      <div class="row"> 
-                            Sleep (8/8 hours)
-                            <button type="button" class="btn btn-outline-dark">Done!</button>
-                       </div> 
-
                 </section>
-            This week: <br/>
+           
+                This week: <br/>
                 <section class="habits habits-week col">
-                    <div class="row"> 
-                        Read Book (1/2)
-                        <button type="button" class="btn btn-outline-dark">Done!</button>
+                    <div class="habits-row habits-weekly-row row"> 
+                        <!-- API FETCH WEEKLY HABITS -->
                    </div> 
-
                 </section>
-            This month:
+            
+                This month:
                 <section class="habits habits-month col">
-                    <div class="row"> 
-                        Learn JavaScript (1/1)
-                        <button type="button" class="btn btn-outline-dark">Done!</button>
+                    <div class="habits-row habits-monthly-row row"> 
+                       <!-- API FETCH MONTHLY HABITS -->
                    </div> 
                 </section>
+            </div>
         </div>
-    </div>
 
     <div class="container container-feedback">
         <p>
@@ -76,8 +64,13 @@
        
    </body>
    
-   <!--Bootstrap JQuery-->
-   <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+   <!--Host JavaScript-->
+   <script defer src="./static/js/scripts.js"></script>
+   <script defer src="./static/js/index.js"></script> 
+    <!--Bootstrap JQuery--> 
+   <script defer src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+   <script defer src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+   <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+  
+
 </html>
