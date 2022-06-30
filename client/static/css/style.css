@@ -1,8 +1,17 @@
 /* STYLES FOR LANDING PAGE 
 -------------------------------------------------------------------------------------------
 */
-body{
+*{
     font-family: 'Lato', sans-serif;
+}
+
+.navbar{
+    height: 70px;
+}
+
+.navbar .nav-link{
+    font-size: 1.5rem;
+    color: white;
 }
 
 .headertext{
@@ -12,7 +21,6 @@ body{
 }
 
 #form{
-    font-family: 'Lato', sans-serif;
     display: flex;
     flex-direction: column;
     margin: 5px;

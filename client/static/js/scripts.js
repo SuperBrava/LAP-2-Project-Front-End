@@ -96,6 +96,7 @@ function getHabits(data) {
 // const habitButton = document.querySelector(".completeHabit");
 function habitButtonX(habitButton) {
     habitButton.addEventListener("click", e => console.log("CLICK"));
+    habitFrequencyPlusOne();
 }; 
 
 //POST REQUEST FOR +1 FOR COMPLETED HABIT
@@ -105,13 +106,13 @@ async function habitFrequencyPlusOne(){
             data[userID].habit_frequency++;  //SELECTING USER HABIT TO INCREMENT PLUS ONE     
         try {
             const options = {
-                method: 'POST',
+                method: 'PUT',
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(data)
             }
             console.log(options); 
             const response = await fetch('https://lap-2-project-backend.herokuapp.com/api/habits', options);
-            const { id, err } = await response.json();  // id - REQUIRED UPDATING FOR SPECIFIC FUNCTION
+            // const { response, err } = await response.json();  
             if(err) {
                 throw Error(err)
             } else {
