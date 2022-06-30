@@ -47,7 +47,7 @@ describe('index.html', () => {
             let username;
             beforeEach(() => {
                 form = page.window.document.querySelector('#loginForm')
-                username = form.querySelector('#username');
+                username = form.querySelector('#email');
             })
     
             test('it exists', () => {
@@ -55,7 +55,7 @@ describe('index.html', () => {
             });
     
             describe('form inputs', () => {
-                test('it has an id of "username"', () => {
+                test('it has an id of "email"', () => {
                     expect(username).toBeTruthy();
                 })
 
@@ -64,7 +64,7 @@ describe('index.html', () => {
                 })
         
                 test('it has a label"', () => {
-                    expect(page.window.document.querySelector('[for="username"]')).toBeTruthy();
+                    expect(page.window.document.querySelector('[for="email"]')).toBeTruthy();
                 })
             })
 
