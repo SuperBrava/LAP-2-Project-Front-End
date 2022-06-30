@@ -46,8 +46,18 @@ function login(data){
     console.log('data', data)
     const payload = jwt_decode(data.token);
     console.log('payload', payload)
-    // localStorage.setItem('token', data.token);
-    // localStorage.setItem('id', payload.id);
-    // localStorage.setItem('username', payload.username);
-    // localStorage.setItem('email', payload.email);
+
+
+    console.log('token', data.token)
+    console.log('id', data.id);
+    console.log('username', payload.username)
+    console.log('email', payload.email)
+
+
+    localStorage.setItem('token', data.token);
+    localStorage.setItem('id', data.id);
+    localStorage.setItem('username', payload.username);
+    localStorage.setItem('email', payload.email);
+
+    window.location.replace("http://127.0.0.1:5500/client/main-page.html");
 }
