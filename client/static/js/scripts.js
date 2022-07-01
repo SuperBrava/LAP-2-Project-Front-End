@@ -27,7 +27,7 @@ function printHabits(data) {
         // console.log(sorting.habit_aim);
         // console.log(sorting.habit_id)
 
-    if (sorting.habit_frequency_type == "daily"){        
+    if (sorting.habit_frequency_type == "Daily"){        
          //  -----------------------DAILY HABITS -------------------------------//
             // print info in html
             const habitRow = document.querySelector(".habits-daily-row");
@@ -64,35 +64,36 @@ function printHabits(data) {
                     habitFrequencyPlusOne();
             });
 
-            function habitFrequencyPlusOne(){
-                let url = `https://lap-2-project-backend.herokuapp.com/api/habits/${sorting.habit_id}`;
+            // function habitFrequencyPlusOne(){
+            //     let url = `https://lap-2-project-backend.herokuapp.com/api/habits/${sorting.habit_id}`;
 
-                let plusOne = sorting.habit_frequency + 1;
-                console.log(sorting);
-                console.log(sorting.habit_frequency);
-                console.log(plusOne);
+            //     let plusOne = sorting.habit_frequency + 1;
+            //     console.log(sorting);
+            //     console.log(sorting.habit_frequency);
+            //     console.log(plusOne);
               
 
-                let dataToUpdate = {
-                    habit: sorting.habit,
-                    habit_freq_type: sorting.habit_frequency_type,
-                    habit_frequency: plusOne,
-                    habit_aim_total: sorting.habit_aim_total,
-                    date: sorting.date,
-                    user_id: sorting.userID
-                }
+            //     let dataToUpdate = {
+            //         habit: sorting.habit,
+            //         habit_freq_type: sorting.habit_frequency_type,
+            //         habit_frequency: plusOne,
+            //         habit_aim_total: sorting.habit_aim_total,
+            //         date: sorting.date,
+            //         user_id: sorting.userID
+            //     }
 
-                let options = {
-                    method: "PATCH",
-                    body: JSON.stringify(dataToUpdate)
-                }
-                fetch(url, options)
-                .then(response => console.log(response.status))
-                .catch(response => console.log("error"))
-            }}
+            //     let options = {
+            //         method: "PATCH",
+            //         body: JSON.stringify(dataToUpdate)
+            //     }
+            //     fetch(url, options)
+            //     .then(response => console.log(response.status))
+            //     .catch(response => console.log("error"))
+            // }
+        }
 
 
-    } else if  (sorting.habit_frequency_type == "weekly") {
+    } else if  (sorting.habit_frequency_type == "Weekly") {
            //  -----------------------WEEKLY HABITS -------------------------------//
             
             // print info in html
@@ -158,7 +159,7 @@ function printHabits(data) {
                 // .then(response => console.log(response.status))
                 // .catch(response => console.log("error"))
             }
-    } else {
+    } else if  (sorting.habit_frequency_type == "Monthly") {
          //  -----------------------MONTHLY HABITS -------------------------------//
        
             // print info in html
@@ -192,35 +193,36 @@ function printHabits(data) {
              });
  
              function habitFrequencyPlusOne(){
-                 let url = `https://lap-2-project-backend.herokuapp.com/api/habits/${sorting.habit_id}`;
+            //      let url = `https://lap-2-project-backend.herokuapp.com/api/habits/${sorting.habit_id}`;
  
-                 let plusOne = sorting.habit_frequency + 1;
-                 console.log(sorting);
-                 console.log(sorting.habit_frequency_type);
-                 console.log(sorting.habit_frequency);
-                 console.log(plusOne);
-                 console.log(sorting.habit_aim)
-                 console.log(sorting.date)
+            //      let plusOne = sorting.habit_frequency + 1;
+            //      console.log(sorting);
+            //      console.log(sorting.habit_frequency_type);
+            //      console.log(sorting.habit_frequency);
+            //      console.log(plusOne);
+            //      console.log(sorting.habit_aim)
+            //      console.log(sorting.date)
  
-                 let dataToUpdate = {
-                    habit_freq_type: sorting.habit_frequency_type,                     
-                     habit: sorting.habit,
-                     habit_frequency: plusOne,
-                     habit_aim_total: sorting.habit_aim,
-                     date: sorting.date,
-                     user_id: userID
-                 }
+            //      let dataToUpdate = {
+            //         habit_freq_type: sorting.habit_frequency_type,                     
+            //          habit: sorting.habit,
+            //          habit_frequency: plusOne,
+            //          habit_aim_total: sorting.habit_aim,
+            //          date: sorting.date,
+            //          user_id: userID
+            //      }
                 
-                 console.log(dataToUpdate);
+            //      console.log(dataToUpdate);
 
-                 let options = {
-                     method: "PATCH",
-                     body: JSON.stringify(dataToUpdate)
-                 }
-                 fetch(url, options)
-                 .then(response => console.log(response.status))
-                 .catch(response => console.log("error"))
-             }}
+            //      let options = {
+            //          method: "PATCH",
+            //          body: JSON.stringify(dataToUpdate)
+            //      }
+            //      fetch(url, options)
+            //      .then(response => console.log(response.status))
+            //      .catch(response => console.log("error"))
+            //  }
+        }
     };}
 };
 
@@ -317,4 +319,4 @@ function printHabits(data) {
 
 //     postText.append(textSpan);
 //     postContainer.append(postText);
-// }   
+}

@@ -40,6 +40,7 @@ async function addhabit(e){
             throw Error(err) 
         } else {
             off();
+            window.location.reload();
             showToast();
         }
     } catch (err) {
