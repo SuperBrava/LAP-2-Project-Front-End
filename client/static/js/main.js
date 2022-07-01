@@ -39,9 +39,20 @@ async function addhabit(e){
         if(err) { 
             throw Error(err) 
         } else {
+            off();
             showToast();
         }
     } catch (err) {
         console.warn(err);
     }
 }
+
+function showToast() {
+    console.log('snackbar showing...')
+    var toast = document.getElementById("snackbar");
+    toast.className = "show";
+    setTimeout(function(){ toast.className = toast.className.replace("show", ""); }, 3000);
+}
+function off() {
+    document.getElementById("overlay").style.display = "none";
+  }

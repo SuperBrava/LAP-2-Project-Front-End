@@ -18,6 +18,7 @@ form.addEventListener('submit', loginUser);
 
 async function loginUser(e){
     e.preventDefault();
+    console.log(e.target)
     const userEmail = e.target.email.value;
     const userPassword = e.target.password.value;
 
