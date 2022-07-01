@@ -19,7 +19,7 @@ function registerUser(e){
     const password = document.getElementById('password').value;
     const confirmPassword = document.getElementById('confirmPassword').value;
     //validate form when user clicks submit button
-    const validation = formValidaiton(username, password, confirmPassword);
+    const validation = formValidaiton(username, password, confirmPassword, email);
 
     if(validation === true){
         console.log('form has been validated no issues found')
@@ -28,10 +28,16 @@ function registerUser(e){
     console.log('user', username, email, password, confirmPassword);
 }
 // Function to valide the form inputs - register form
-function formValidaiton(username, password, confirmPassword){
+function formValidaiton(username, password, confirmPassword, email){
     //Should create a function that checks if username exists (possibly) - backend
     document.getElementById('passwordMessage').textContent = '';
     document.getElementById('passwordConfirmMessage').textContent = '';
+    document.getElementById('emailMessage').textContent = '';
+
+    if(ValidateEmail(email) != true){
+        document.getElementById('emailMessage').textContent = 'Invalid email e.g. john@gmail.com';
+        return false
+    }
     if(password.length < 8){
         document.getElementById('passwordMessage').textContent = "Password length must be atleast 8 characters";
         return false;
@@ -56,6 +62,11 @@ function formValidaiton(username, password, confirmPassword){
         const specialChars = /[`!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/;
         return specialChars.test(str);
     }
+    function ValidateEmail(mail) 
+        {
+        const special = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+        return special.test(mail)
+        }
     return true;
 }
 //Function to toggle password - so user can see the text of the password
