@@ -46,6 +46,7 @@ function printHabits(data) {
             habitRow.appendChild(habitItem);
             habitRow.appendChild(habitButton);
             habitRow.appendChild(habitSpacer);
+            habitSpacer.classList.add("block");
 
             console.log(sorting.habit_frequency);
             console.log(sorting.habit_frequency++);
