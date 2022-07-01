@@ -1,6 +1,6 @@
 const hostAndPort = 'https://lap-2-project-backend.herokuapp.com/'; // This is for production
 // LOGGED IN USER ID --------------------------------- //
-let userID = 5;
+let userID = localStorage.getItem("id");
 
 //JSON GET User Data
 function fetchData() {
@@ -15,26 +15,25 @@ fetchData()
 function printHabits(data) {
     let getHabits = data;
     
-    getHabits.forEach(element => console.log(element));
+    // getHabits.forEach(element => console.log(element));
     getHabits.forEach(element => sortingFunction(element));
-    // }; 
-
+  
     function sortingFunction(sorting) {
 
-        console.log(sorting); 
-        console.log(sorting.habit); 
-        console.log(sorting.habit_frequency_type); 
-        console.log(sorting.habit_frequency);
-        console.log(sorting.habit_aim);
-        console.log(sorting.length); 
+        // console.log(sorting); 
+        // console.log(sorting.habit); 
+        // console.log(sorting.habit_frequency_type); 
+        // console.log(sorting.habit_frequency);
+        // console.log(sorting.habit_aim);
+        // console.log(sorting.habit_id)
 
-    if (sorting.habit_frequency_type === "Daily"){        
+    if (sorting.habit_frequency_type == "Daily"){        
          //  -----------------------DAILY HABITS -------------------------------//
             // print info in html
             const habitRow = document.querySelector(".habits-daily-row");
             const habitItem = document.createElement("div");
             const habitButton = document.createElement("button");
-            const habitSpacer = document.createElement("br")
+            const habitSpacer = document.createElement("div")
             
             habitItem.textContent = `${sorting.habit} (${sorting.habit_frequency}/${sorting.habit_aim})`;   
             habitButton.textContent = "Done!";
@@ -47,41 +46,128 @@ function printHabits(data) {
             habitRow.appendChild(habitItem);
             habitRow.appendChild(habitButton);
             habitRow.appendChild(habitSpacer);
-           
-            // const habitButtonListener = document.querySelector(".completeHabit");
-            // habitButtonX(habitButtonListener);
+            habitSpacer.classList.add("block");
 
-    } else if  (data[userID].habit_frequency_type == "Weekly") {
+            console.log(sorting.habit_frequency);
+            console.log(sorting.habit_frequency++);
+            // console.log(sorting.habit_id);
+            console.log(sorting);
+     
+     
+            //BUTTON LISTENER
+            const habitButtonListener = document.querySelector(".completeHabit");
+                    
+            habitButtonX(habitButtonListener);
+
+            function habitButtonX(habitButton) {
+                habitButton.addEventListener("click", e => {
+                    console.log("CLICK");
+                    habitFrequencyPlusOne();
+            });
+
+            // function habitFrequencyPlusOne(){
+            //     let url = `https://lap-2-project-backend.herokuapp.com/api/habits/${sorting.habit_id}`;
+
+            //     let plusOne = sorting.habit_frequency + 1;
+            //     console.log(sorting);
+            //     console.log(sorting.habit_frequency);
+            //     console.log(plusOne);
+              
+
+            //     let dataToUpdate = {
+            //         habit: sorting.habit,
+            //         habit_freq_type: sorting.habit_frequency_type,
+            //         habit_frequency: plusOne,
+            //         habit_aim_total: sorting.habit_aim_total,
+            //         date: sorting.date,
+            //         user_id: sorting.userID
+            //     }
+
+            //     let options = {
+            //         method: "PATCH",
+            //         body: JSON.stringify(dataToUpdate)
+            //     }
+            //     fetch(url, options)
+            //     .then(response => console.log(response.status))
+            //     .catch(response => console.log("error"))
+            // }
+        }
+
+
+    } else if  (sorting.habit_frequency_type == "Weekly") {
            //  -----------------------WEEKLY HABITS -------------------------------//
             
             // print info in html
             const habitRow = document.querySelector(".habits-weekly-row");
             const habitItem = document.createElement("div");
             const habitButton = document.createElement("button");
-            const habitSpacer = document.createElement("br")
-            
-            habitItem.textContent = `${sorting.habit} (${sorting.habit_frequency}/${sorting.habit_aim})`;  
+            const habitSpacer = document.createElement("div")
+            let habitCounter = 0;
+
+            habitItem.textContent = `${sorting.habit} (${habitCounter}/${sorting.habit_aim})`;  
             habitButton.textContent = "Done!";
             //APPLY STYLES
             habitItem.classList.add("habits-weekly-row"); 
             habitButton.classList.add("btn"); 
             habitButton.classList.add("btn-outline-dark");
             habitButton.classList.add("completeHabit");
+            habitSpacer.classList.add("block");
     
             habitRow.appendChild(habitItem);
             habitRow.appendChild(habitButton);
             habitRow.appendChild(habitSpacer);
 
-            // const habitButtonListener = document.querySelector(".completeHabit");
-            // habitButtonX(habitButtonListener);
-    } else {
+            // console.log(sorting.habit_frequency);
+            // console.log(sorting.habit_frequency++);
+            // console.log(+sorting.habit_frequency);
+            // console.log(sorting.habit_id)
+            // console.log(sorting)
+
+          //BUTTON LISTENER
+            const habitButtonListener = document.querySelector(".completeHabit");
+            
+            habitButtonX(habitButtonListener);
+
+            function habitButtonX() {
+                habitButton.addEventListener("click", e => {
+                    console.log(habitCounter);
+                    console.log("CLICK");
+                    habitCounter = habitCounter + 1;
+                   return habitCounter;
+            });
+
+          
+                // let url = `https://lap-2-project-backend.herokuapp.com/api/habits/${sorting.habit_id}`;
+                // let plusOne = sorting.habit_frequency + 1;
+                // console.log(sorting);
+                // console.log(sorting.habit_frequency);
+                // console.log(plusOne);
+
+                // let dataToUpdate = {
+                //     habit: sorting.habit,
+                //     habit_freq_type: sorting.habit_frequency_type,
+                //     habit_frequency: plusOne,
+                //     habit_aim_total: sorting.habit_aim_total,
+                //     date: sorting.date,
+                //     user_id: sorting.userID
+                // }
+
+                // let options = {
+                //     method: "PATCH",
+                //     body: JSON.stringify(dataToUpdate)
+                // }
+                // fetch(url, options)
+                // .then(response => console.log(response.status))
+                // .catch(response => console.log("error"))
+            }
+    } else if  (sorting.habit_frequency_type == "Monthly") {
          //  -----------------------MONTHLY HABITS -------------------------------//
        
             // print info in html
             const habitRow = document.querySelector(".habits-monthly-row");
             const habitItem = document.createElement("div");
             const habitButton = document.createElement("button");
-            const habitSpacer = document.createElement("br")
+            const habitSpacer = document.createElement("div")
             
             habitItem.textContent = `${sorting.habit} (${sorting.habit_frequency}/${sorting.habit_aim})`;   
             habitButton.textContent = "Done!";
@@ -90,13 +176,54 @@ function printHabits(data) {
             habitButton.classList.add("btn"); 
             habitButton.classList.add("btn-outline-dark");
             habitButton.classList.add("completeHabit");
+            habitSpacer.classList.add("block");
     
             habitRow.appendChild(habitItem);
             habitRow.appendChild(habitButton); 
             habitRow.appendChild(habitSpacer);
             
-            // const habitButtonListener = document.querySelector(".completeHabit");
-            // habitButtonX(habitButtonListener);
+             //BUTTON LISTENER
+             const habitButtonListener = document.querySelector(".completeHabit");
+                    
+             habitButtonX(habitButtonListener);
+ 
+             function habitButtonX(habitButton) {
+                 habitButton.addEventListener("click", e => {
+                     console.log("CLICK");
+                     habitFrequencyPlusOne();
+             });
+ 
+             function habitFrequencyPlusOne(){
+            //      let url = `https://lap-2-project-backend.herokuapp.com/api/habits/${sorting.habit_id}`;
+ 
+            //      let plusOne = sorting.habit_frequency + 1;
+            //      console.log(sorting);
+            //      console.log(sorting.habit_frequency_type);
+            //      console.log(sorting.habit_frequency);
+            //      console.log(plusOne);
+            //      console.log(sorting.habit_aim)
+            //      console.log(sorting.date)
+ 
+            //      let dataToUpdate = {
+            //         habit_freq_type: sorting.habit_frequency_type,                     
+            //          habit: sorting.habit,
+            //          habit_frequency: plusOne,
+            //          habit_aim_total: sorting.habit_aim,
+            //          date: sorting.date,
+            //          user_id: userID
+            //      }
+                
+            //      console.log(dataToUpdate);
+
+            //      let options = {
+            //          method: "PATCH",
+            //          body: JSON.stringify(dataToUpdate)
+            //      }
+            //      fetch(url, options)
+            //      .then(response => console.log(response.status))
+            //      .catch(response => console.log("error"))
+            //  }
+        }
     };}
 };
 
@@ -105,19 +232,16 @@ function printHabits(data) {
     
 // // BUTTON FUNCTION TO ADD COMPLETED HABIT
 // const habitButton = document.querySelector(".completeHabit");
-// function habitButtonX(habitButton) {
-//     habitButton.addEventListener("click", e => console.log("CLICK"));
-//     habitFrequencyPlusOne();
-// }; 
 
-// async function habitFrequencyPlusOne(){  ///ACYNC AWAIT ISSUE?
+
+// function habitFrequencyPlusOne(){  ///ACYNC AWAIT ISSUE?
 //     let url = `https://lap-2-project-backend.herokuapp.com/api/users/${userID}`;
 //     let dataToUpdate = {
+       
 //         user_id: 4,
 //         id: 1,
 //         habit_frequency: 5
 //     }
-
 //     let options = {
 //         method: "PUT",
 //         body: JSON.stringify(dataToUpdate)
@@ -196,4 +320,4 @@ function printHabits(data) {
 
 //     postText.append(textSpan);
 //     postContainer.append(postText);
-// }   
+}
