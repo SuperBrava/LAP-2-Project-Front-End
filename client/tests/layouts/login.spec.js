@@ -1,6 +1,7 @@
 const fs = require('fs');
 const { JSDOM } = require('jsdom');
 const path = require('path');
+const { isTypedArray } = require('util/types');
 const html = fs.readFileSync(path.resolve(__dirname, '../../login-page.html'), 'utf8');
 const page = new JSDOM(html);
 
@@ -69,5 +70,34 @@ describe('index.html', () => {
         })
     })
 
-
+    // describe('mocking jest', () => {
+    //     let fetchMock;
+    //     let assignMock;
+    //     beforeEach(() => {
+    //         fetchMock = jest.spyOn(global, 'fetch');
+    //         fetchMock.mockImplementation(() => Promise.resolve({
+    //             json: () => Promise.resolve({ message: 'Your account was created' })
+    //           }));
+    
+    //         //   assignMock = jest.spyOn(page.window.location, 'assign');
+    //         //   assignMock.mockImplementation(() => {});
+    //           // With everything set up, require the code
+    //           require('../../static/js/login');
+    //     })
+    //     afterEach(() => {
+    //         // After each test call mockRestore() to restore the original functions
+    //         fetchMock.mockRestore();
+    //         // assignMock.mockRestore();
+    //         // resetModules() resets the module registry in Jest and ensures
+    //         // a fresh copy of './code' executes on require()
+    //         jest.resetModules();
+    //      });
+    
+    //      it('should do something', () => {
+    //         page.document.getElementById('loginButton').click();
+    
+    //         // Check that fetch was called with the expected arguments
+    //         expect(fetchMock).toHaveBeenCalledTimes(1);
+    //      })
+    // })
 })
