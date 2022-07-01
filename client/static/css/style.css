@@ -40,6 +40,7 @@ label{
     font-size: 1.15em;
 }
 
+
 .btn{
     width: 20%;
 }
@@ -61,6 +62,7 @@ label{
 .logo {
     display: flex;
     margin: auto;
+    height: 250px;
 
 }
 .container{
@@ -75,7 +77,7 @@ label{
 .container section{  
     font-weight: 400;
     min-height: 25px;
-    padding: 10px 30px;
+    padding: 0px 30px 30px;
     height: auto;
 }
 
@@ -98,12 +100,33 @@ label{
     height: 100px;
 }
 
+section{
+    padding: 0;
+}
 .habits button{
-    margin-left: auto;
+    margin: auto 0 auto auto ;
     background-color: #83ab60;
     color: white;
     border: none;
     margin-top: 10px;
+}
+
+.block{
+    width: 100%;
+}
+
+.habits-daily-row{
+    display: flex;
+    align-self: flex-end;
+}
+
+.habits-weekly-row{
+    display: flex;
+    align-self: flex-end;
+}
+.habits-monthly-row{
+    display: flex;
+    align-self: flex-end;
 }
 
 /* .habits habits-row{
